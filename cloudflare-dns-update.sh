@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# Cloudflare API credentials
+# Cloudflare API token and Website Zone ID
 TOKEN="[CLOUDFLARE-API-TOKEN-HERE]"
+ZONEID="[CLOUDFLARE-ZONE-ID-HERE]"
+
+# DNS Record ID
+DNSID="[CLOUDFLARE-DNS-RECORD-ID-HERE]"
 
 # DNS record settings
-ZONEID="[CLOUDFLARE-ZONE-ID-HERE]"
-DNSID="[CLOUDFLARE-DNS-RECORD-ID-HERE]"
 TYPE="A"
 NAME="@"
 CONTENT=$(curl --silent --url https://api.ipify.org)
@@ -24,16 +26,16 @@ SCRIPTNAME=$(basename ${BASH_SOURCE})
 FILENAME=${SCRIPTNAME%.*}
 RESULTSFILE="${DIRNAME}/${FILENAME}_results.json"
 DNSLISTFILE="${DIRNAME}/${FILENAME}_dnslist.json"
-CONTENTFILE="${DIRNAME}/${FILENAME}_content.txt"
 
-# Execute DNS update or list
+# Update or list DNS records
 if [[ $1 != "list" ]];
 then
-  echo Updating DNS record...
-  curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}" > ${RESULTSFILE}
-  echo ${CONTENT} > ${CONTENTFILE}
+  # Update DNS record
+  REPSONSE=$(curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}")
+  echo ${REPSONSE} | tee ${RESULTSFILE}
 else
   # List DNS rescords
-  echo Listing DNS records...
-  curl --silent --request GET --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" > ${DNSLISTFILE}
+
+  REPSONSE=$(curl --silent --request GET --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}")
+  echo ${REPSONSE} | tee ${DNSLISTFILE}
 fi
