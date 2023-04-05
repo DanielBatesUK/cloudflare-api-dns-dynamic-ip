@@ -1,4 +1,4 @@
-# **cloudflare-api-DNS-dynamic-ip**
+# **cloudflare-api-dns-dynamic-ip**
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/DanielBatesUK/cloudflare-api-dns-dynamic-ip) ![GitHub repo file count](https://img.shields.io/github/directory-file-count/DanielBatesUK/cloudflare-api-dns-dynamic-ip) ![GitHub repo size](https://img.shields.io/github/repo-size/DanielBatesUK/cloudflare-api-dns-dynamic-ip) ![GitHub issues](https://img.shields.io/github/issues-raw/DanielBatesUK/cloudflare-api-dns-dynamic-ip)
 
@@ -8,7 +8,7 @@
 
 ## Description
 
-A simple Bash script that updates an DNS A record on Cloudflare with the current IP address. Good for hosts with dynamic ip addresses.
+A simple Bash script that updates a DNS record on Cloudflare with the host's current web IP address. Good for hosts with dynamic ip addresses.
 
 ## Installation
 
