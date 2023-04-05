@@ -34,8 +34,7 @@ then
   REPSONSE=$(curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}")
   echo ${REPSONSE} | tee ${RESULTSFILE}
 else
-  # List DNS rescords
-
+  # List DNS rescords for zone
   REPSONSE=$(curl --silent --request GET --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}")
   echo ${REPSONSE} | tee ${DNSLISTFILE}
 fi
