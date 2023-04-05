@@ -163,5 +163,5 @@ If you are just hosting web traffic (HTTP & HTTPS). Rather than running a script
 
 ## License
 
-- Copyright © 2022 [Daniel Bates](https://github.com/DanielBatesUK).
+- Copyright © 2023 [Daniel Bates](https://github.com/DanielBatesUK).
 - This project is [GNU v3.0](https://github.com/DanielBatesUK/cloudflare-api-dns-dynamic-ip/blob/c57a76e55ad50b386ce96a26994c4a3743e3aaa8/LICENSE) licensed.
