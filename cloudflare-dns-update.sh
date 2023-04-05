@@ -29,20 +29,11 @@ CONTENTFILE="${DIRNAME}/${FILENAME}_content.txt"
 # Execute DNS update or list
 if [[ $1 != "list" ]];
 then
-  # Update DNS record
-  #OLDIP=$(cat ${CONTENTFILE})
-  #if [[ ${CONTENT} != ${OLDIP} ]];
-  #then
-    echo Updating DNS record...
-    curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}" > ${RESULTSFILE}
-    echo ${CONTENT} > ${CONTENTFILE}
-    jq . ${RESULTSFILE}
-  #else
-  #  echo No need to update: Content is the same
-  #fi
+  echo Updating DNS record...
+  curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}" > ${RESULTSFILE}
+  echo ${CONTENT} > ${CONTENTFILE}
 else
   # List DNS rescords
   echo Listing DNS records...
   curl --silent --request GET --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" > ${DNSLISTFILE}
-  jq . ${DNSLISTFILE}
 fi
