@@ -14,9 +14,6 @@ CONTENT=$(curl --silent --url https://api.ipify.org)
 PROXIED="true"
 TTL=1
 
-# DNS record body JSON
-BODYDATA="{ \"type\": \"${TYPE}\", \"name\": \"${NAME}\", \"content\": \"${CONTENT}\", \"proxied\": ${PROXIED}, \"ttl\":${TTL} }"
-
 
 ###################################################################################################
 
@@ -26,6 +23,9 @@ SCRIPTNAME=$(basename ${BASH_SOURCE})
 FILENAME=${SCRIPTNAME%.*}
 RESULTSFILE="${DIRNAME}/${FILENAME}_results.json"
 DNSLISTFILE="${DIRNAME}/${FILENAME}_dnslist.json"
+
+# Compile DNS record body data
+BODYDATA="{ \"type\": \"${TYPE}\", \"name\": \"${NAME}\", \"content\": \"${CONTENT}\", \"proxied\": ${PROXIED}, \"ttl\":${TTL} }"
 
 # Update or list DNS records
 if [[ $1 != "list" ]];
