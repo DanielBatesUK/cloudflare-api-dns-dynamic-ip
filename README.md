@@ -48,8 +48,8 @@ nano cloudflare-dns-update.sh
 
 Update the following
 
-- `[CLOUDFLARE-API-TOKEN-HERE]` Change this to the api token you created earlier.
-- `[CLOUDFLARE-ZONE-ID-HERE]` Change this to the Zone ID you noted previously from the website overview dashboard.
+- `TOKEN="CLOUDFLARE-API-TOKEN-HERE"` Change `CLOUDFLARE-API-TOKEN-HERE` to the api token you created earlier (it's a string so keep it within quotes).
+- `ZONEID="CLOUDFLARE-ZONE-ID-HERE"` Change `CLOUDFLARE-ZONE-ID-HERE` to the Zone ID you noted previously from the website overview dashboard (again, it's a string, so keep it within quotes).
 
 That's it for now. Save the file <kbd>Ctrl</kbd>+<kbd>o</kbd> then <kbd>Enter</kbd>. And exit nano with <kbd>Ctrl</kbd>+<kbd>x</kbd>.
 
