@@ -24,13 +24,11 @@ FILENAME=${SCRIPTNAME%.*}
 RESULTSFILE="${DIRNAME}/${FILENAME}_results.json"
 DNSLISTFILE="${DIRNAME}/${FILENAME}_dnslist.json"
 
-# Compile DNS record body data
-BODYDATA="{ \"type\": \"${TYPE}\", \"name\": \"${NAME}\", \"content\": \"${CONTENT}\", \"proxied\": ${PROXIED}, \"ttl\":${TTL} }"
-
 # Update or list DNS records
 if [[ $1 != "list" ]];
 then
   # Update DNS record
+  BODYDATA="{ \"type\": \"${TYPE}\", \"name\": \"${NAME}\", \"content\": \"${CONTENT}\", \"proxied\": ${PROXIED}, \"ttl\":${TTL} }"
   REPSONSE=$(curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}")
   echo ${REPSONSE} | tee ${RESULTSFILE}
 else
