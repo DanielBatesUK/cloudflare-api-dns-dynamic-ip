@@ -93,7 +93,7 @@ nano cloudflare-dns-update.sh
 
 This time update the following
 
-- `[CLOUDFLARE-DNS-RECORD-ID-HERE]` Change this to DNS record id you noted.
+- `DNSID="CLOUDFLARE-DNS-RECORD-ID-HERE"` Change `[CLOUDFLARE-DNS-RECORD-ID-HERE]` this to DNS record id you noted (within quotes).
 
 Then change the rest of the DNS settings variables to match your desired DNS record settings. In particular the 'NAME' variable.
 
