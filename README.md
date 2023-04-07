@@ -128,7 +128,7 @@ Once you know that your script is working fine. You need to keep your DNS record
 Edit your crontab.
 
 ```Shell
-sudo contab -e
+sudo crontab -e
 ```
 
 _You maybe prompted for what editor you want to use. Just choose your preferred option._
