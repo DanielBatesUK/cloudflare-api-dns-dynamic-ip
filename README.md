@@ -14,7 +14,15 @@ A simple Bash script that updates a DNS record on Cloudflare with the host's cur
 
 It looks like there's a lot to do here. But in reality these instructions should only take a minute or two to complete. TL;DR: Download the script, create a Cloudflare API token, update the script with the token and zone id, find your Cloudflare DNS record's id, update the script again with the id and dns settings, and add to crontab. 
 
-### Download
+### Prerequisite: Install cURL
+
+For this script to work you will need to have cURL installed. If you don't have installed, run this command to install it.
+
+```Shell
+sudo apt-get install curl
+```
+
+### Download the script
 
 #### _Either:_ Clone the repository
 
@@ -50,13 +58,13 @@ On the Cloudflare dashboard, go to the 'overview' page of the website you want t
 
 1. In the 'API Tokens' section, click on the 'Create Token' button. 
 2. On the next page, click on the 'Use Template' button for 'Edit zone DNS'; from the 'API token templates' list.
-3. Give your token a name (pencil icon) and set your permissions accordingly. You might want to limit the 'Zone Resources' to 'Include', 'Specific Zone', '[your-website.com]'. Especially if you are looking after multiple domains. This will help limit the damage to only one website, in the event your api tokens and zone ids get accidentally leaked. 
+3. Give your token a name (pencil icon) and set your permissions accordingly. You might want to limit the 'Zone Resources' to 'Include', 'Specific Zone', '[your-website.com]'. Especially if you are looking after multiple domains. This will help limit the damage to only one website, in the event your API tokens and zone ids get accidentally leaked. 
 4. Then click the 'Continue to summary' button.
 5. Review all the settings in summary and make sure everything is correct. Then click the 'Create Token' button.
 
 #### Get your API token
 
-Copy and note down the api token as you'll be needing this later; along with the 'Zone ID' from earlier. If you lose this API token, then you will have to 'Roll' a new one, via the 3 dot options button for your token, on the 'API Tokens' page, of your 'My Profile' dashboard.
+Copy and note down the API token as you'll be needing this later; along with the 'Zone ID' from earlier. If you lose this API token, then you will have to 'Roll' a new one, via the 3 dot options button for your token, on the 'API Tokens' page, of your 'My Profile' dashboard.
 
 ### Updating the script
 
