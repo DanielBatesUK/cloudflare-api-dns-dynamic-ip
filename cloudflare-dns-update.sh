@@ -22,9 +22,9 @@ DIRNAME=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 SCRIPTNAME=$(basename ${BASH_SOURCE})
 FILENAME=${SCRIPTNAME%.*}
 RESULTSFILE="${DIRNAME}/${FILENAME}_results.json"
-DNSLISTFILE="${DIRNAME}/${FILENAME}_dnslist.json"
+DNSFILE="${DIRNAME}/${FILENAME}_dns.json"
 
-# Update or list DNS records
+# Update or get DNS records
 if [[ $1 != "list" ]];
 then
   # Update DNS record
@@ -32,7 +32,7 @@ then
   REPSONSE=$(curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}")
   echo ${REPSONSE} | tee ${RESULTSFILE}
 else
-  # List DNS rescords for zone
+  # Get DNS rescords for zone
   REPSONSE=$(curl --silent --request GET --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}")
-  echo ${REPSONSE} | tee ${DNSLISTFILE}
+  echo ${REPSONSE} | tee ${DNSFILE}
 fi
