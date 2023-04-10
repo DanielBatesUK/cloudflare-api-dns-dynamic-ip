@@ -16,7 +16,7 @@ It looks like there's a lot to do here. But in reality these instructions should
 
 ### Prerequisite: Install cURL
 
-For this script to work you will need to have cURL installed. If you don't have installed, run this command to install it.
+For this script to work you will need to have cURL installed. If you don't have it installed, run this command to install it.
 
 ```Shell
 sudo apt-get install curl
