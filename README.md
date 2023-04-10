@@ -12,7 +12,7 @@ A simple Bash script that updates a DNS record on Cloudflare with the host's cur
 
 ## Instructions
 
-It look like there's a lot to do here. But in reality these instructions should only take a minute or two to complete. TL;DR: Download the script, create a Cloudflare API token, update the script with the token and zone id, find your Cloudflare DNS record's id, update the script again with the id and dns settings, and add to crontab. 
+It looks like there's a lot to do here. But in reality these instructions should only take a minute or two to complete. TL;DR: Download the script, create a Cloudflare API token, update the script with the token and zone id, find your Cloudflare DNS record's id, update the script again with the id and dns settings, and add to crontab. 
 
 ### Download
 
