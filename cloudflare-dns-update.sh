@@ -25,7 +25,7 @@ RESULTSFILE="${DIRNAME}/${FILENAME}_results.json"
 DNSFILE="${DIRNAME}/${FILENAME}_dns.json"
 
 # Update or get DNS records
-if [[ $1 != "list" ]];
+if [[ $1 != "--get-dns" ]];
 then
   # Update DNS record
   BODYDATA="{ \"type\": \"${TYPE}\", \"name\": \"${NAME}\", \"content\": \"${CONTENT}\", \"proxied\": ${PROXIED}, \"ttl\":${TTL} }"
