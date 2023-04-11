@@ -137,9 +137,7 @@ This time update the following _DNS Record ID_ variable.
 
 Then change the rest of the _DNS record settings_ variables to match your requirements. In particular the 'NAME' variable.
 
-- `TYPE="A"` should stay as `"A"`. This is because we are updating the record with an IP address. 
 - `NAME="@"` should be set to the name of your record. For example `"@"` for host root, maybe `"www"`, or the name of your subdomain (in quotes).
-- `CONTENT=$(curl --silent --url https://api.ipify.org)` Leave this one alone. The command here is what retrieves your host's current web IP address.
 - `PROXIED="true"` must be set to either `"true"` or `"false"`; depending on your requirements (keep it in quotes as this is a string and not a boolean).
 - `TTL=1` should be set to your required time-to-live integer (a number with no quotes - default=1).
 
