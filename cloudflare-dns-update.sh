@@ -8,9 +8,7 @@ ZONEID="CLOUDFLARE-ZONE-ID-HERE"
 DNSID="CLOUDFLARE-DNS-RECORD-ID-HERE"
 
 # DNS record settings
-TYPE="A"
 NAME="@"
-CONTENT=$(curl --silent --url https://api.ipify.org)
 PROXIED="true"
 TTL=1
 
@@ -28,6 +26,8 @@ DNSFILE="${DIRNAME}/${FILENAME}_dns.json"
 if [[ $1 != "--get-dns" ]];
 then
   # Update DNS record
+  TYPE="A"
+  CONTENT=$(curl --silent --url https://api.ipify.org)
   BODYDATA="{ \"type\": \"${TYPE}\", \"name\": \"${NAME}\", \"content\": \"${CONTENT}\", \"proxied\": ${PROXIED}, \"ttl\":${TTL} }"
   REPSONSE=$(curl --silent --request PUT --url https://api.cloudflare.com/client/v4/zones/${ZONEID}/dns_records/${DNSID} --header "Content-Type: application/json" --header "Authorization: Bearer ${TOKEN}" --data "${BODYDATA}")
   echo ${REPSONSE} | tee ${RESULTSFILE}
