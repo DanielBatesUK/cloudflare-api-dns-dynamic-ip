@@ -135,7 +135,7 @@ This time update the following _DNS Record ID_ variable.
 
 - `DNSID="CLOUDFLARE-DNS-RECORD-ID-HERE"` Replace `CLOUDFLARE-DNS-RECORD-ID-HERE` with the DNS record 'id' you noted from the JSON response earlier (within quotes).
 
-Then change the rest of the _DNS record settings_ variables to match your requirements. In particular the 'NAME' variable.
+Then finally change the _DNS record settings_ variables to match your requirements. In particular the 'NAME' variable.
 
 - `NAME="@"` should be set to the name of your record. For example `"@"` for host root, maybe `"www"`, or the name of your subdomain (in quotes).
 - `PROXIED="true"` must be set to either `"true"` or `"false"`; depending on your requirements (keep it in quotes as this is a string and not a boolean).
